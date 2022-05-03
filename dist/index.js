@@ -8762,12 +8762,13 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3950);
 const github = __nccwpck_require__(9501);
 
-console.log("before run");
-
 async function run() {
+    console.log("before context");
     const context = github.context;
     const owner = core.getInput('repositoryOwner');
+    console.log("owner: " + owner);
     const repository = core.getInput('repository');
+    console.log("repository: " + repository);
     const octokit = github.getOctokit(
         core.getInput('repoToken', { required: true })
     );
