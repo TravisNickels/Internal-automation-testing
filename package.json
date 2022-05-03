@@ -1,0 +1,29 @@
+{
+  "name": "create-reminder-action",
+  "version": "1.0.0",
+  "description": "Create reminders in issues when a keyward is used",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "ncc build index.js -o dist --license licenses.txt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravisNickels/create-reminder-action.git"
+  },
+  "keywords": [
+    "reminders",
+    "status",
+    "update"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TravisNickels/create-reminder-action/issues"
+  },
+  "homepage": "https://github.com/TravisNickels/create-reminder-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.1"
+  }
+}

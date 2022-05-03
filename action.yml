@@ -1,0 +1,22 @@
+name: create-reminder-action
+description: Create a reminder from an issue comment 
+runs:
+  using: node12
+  main: dist/index.js
+  post: dist/index.js
+inputs:
+  keyword-string:
+    description: The keyword string that is used to search through the issue comment and find a date to create the reminder for
+    required: true
+  repoToken:
+    description: 'github token'
+    required: true
+    default: '${{ github.token }}'
+  repository:
+    description: 'the repository name'
+    required: true
+    default: '${{ github.repository }}'
+  repositoryOwner:
+    description: 'the repository owner'
+    required: true
+    default: '${{ github.repository_owner }}'
