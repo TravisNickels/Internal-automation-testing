@@ -22,3 +22,5 @@ async function run() {
 
     await octokit.rest.issues.createComment(issueComment)
 }
+
+run();

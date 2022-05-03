@@ -8783,6 +8783,8 @@ async function run() {
 
     await octokit.rest.issues.createComment(issueComment)
 }
+
+run();
 })();
 
 module.exports = __webpack_exports__;
