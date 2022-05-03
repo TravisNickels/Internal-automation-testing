@@ -3,24 +3,43 @@ const github = require('@actions/github');
 
 console.log("before run");
 
+function getIssueProps(context) {
+    return {
+        owner: context.repository.owner,
+        repo: context.repository.name,
+        issue_number: context.issue.number,
+    };
+}
+  
+function createComment(octokit, context, body) {
+    return octokit.rest.issues.createComment({
+        ...getIssueProps(context),
+        body,
+    });
+}
+
 async function run() {
-    console.log("before context");
-    const context = github.context;
+    const context = github.context.payload;
     const owner = core.getInput('repositoryOwner');
-    console.log("owner: " + owner);
     const repository = core.getInput('repository');
-    console.log("repository: " + repository);
     const octokit = github.getOctokit(
         core.getInput('repoToken', { required: true })
     );
 
+    context.repository = {
+        owner,
+        name: repository.split('/')[1],
+    };
+
     console.log("I see the issue_comment.created");
 
-    const issueComment = context.issue({
-        body: "This is from the GHA",
-    });
+    await createComment(
+        octokit,
+        context,
+        "I see the comment you made!"
+      );
 
-    await octokit.rest.issues.createComment(issueComment)
+    //await octokit.rest.issues.createComment(issueComment)
 }
 
 run();
