@@ -9,14 +9,14 @@ inputs:
     description: The keyword string that is used to search through the issue comment and find a date to create the reminder for
     required: true
   repoToken:
-    description: 'github token'
+    description: github token
     required: true
-    default: '${{ github.token }}'
+    default: ${{ github.token }}
   repository:
-    description: 'the repository name'
+    description: the repository name
     required: true
-    default: '${{ github.repository }}'
+    default: ${{ github.repository }}
   repositoryOwner:
-    description: 'the repository owner'
+    description: the repository owner
     required: true
-    default: '${{ github.repository_owner }}'
+    default: ${{ github.repository_owner }}
