@@ -1,6 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+console.log("before run");
+
 async function run() {
     const context = github.context;
     const owner = core.getInput('repositoryOwner');
