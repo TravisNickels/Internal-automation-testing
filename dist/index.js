@@ -8763,12 +8763,14 @@ const core = __nccwpck_require__(3950);
 const github = __nccwpck_require__(9501);
 
 async function run() {
-    const context = github.context.payload;
+    const context = github.context;
     const owner = core.getInput('repositoryOwner');
     const repository = core.getInput('repository');
     const octokit = github.getOctokit(
         core.getInput('repoToken', { required: true })
     );
+
+    console.log("I see the issue_comment.created");
 
     const issueComment = context.issue({
         body: "This is from the GHA",

@@ -9,7 +9,7 @@ async function run() {
         core.getInput('repoToken', { required: true })
     );
 
-    console.log.info("I see the issue_comment.created");
+    console.log("I see the issue_comment.created");
 
     const issueComment = context.issue({
         body: "This is from the GHA",
