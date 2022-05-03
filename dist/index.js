@@ -8762,6 +8762,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3950);
 const github = __nccwpck_require__(9501);
 
+console.log("before run");
+
 async function run() {
     console.log("before context");
     const context = github.context;
