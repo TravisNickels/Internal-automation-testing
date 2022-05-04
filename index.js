@@ -33,12 +33,18 @@ async function run() {
 
     console.log("I see the issue_comment.created");
 
-    await createComment(
-        octokit,
-        context,
-        "I see the comment you made!"
-      );
+    // await createComment(
+    //     octokit,
+    //     context,
+    //     "I see the comment you made!"
+    // );
 
+    await octokit.rest.issues.createComment({
+        owner: context.repository.owner,
+        repo: context.repository.name,
+        issue_number: context.issue.number,
+        body: "I got the comment on the issue! ✅"
+    })
     //await octokit.rest.issues.createComment(issueComment)
 }
 
