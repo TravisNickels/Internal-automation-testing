@@ -1,6 +1,11 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+// Only one endpoint, so determine if this is the post action, and set it true so that
+// the next time we're executed, it goes to the post action
+let isPost = core.getState('IsPost');
+core.saveState('IsPost', true);
+
 async function run() {
     try {
         if (!isPost) {
