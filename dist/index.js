@@ -8788,7 +8788,7 @@ async function run() {
                 owner: context.repository.owner,
                 repo: context.repository.name,
                 issue_number: context.issue.number,
-                body: "I got the comment on the issue! Needed to test changing the comment. ✅"
+                body: "I got the comment on the issue! ✅"
             })
         } else { // Cleanup
             console.log("Running cleanup");
