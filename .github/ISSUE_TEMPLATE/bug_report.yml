@@ -70,3 +70,4 @@ body:
     value: |
       | Category                       | Points     | Reason      |
       |--------------------------------|------------|-------------|
+      | Severity                       |
