@@ -67,12 +67,10 @@ body:
     value: "# Triage"
 - type: markdown
   attributes:
-    value: |
-    | Category                       | Points     | Reason      |
-    |--------------------------------|------------|-------------|
+    value: "| Category                       | Points     | Reason      |"
 - type: markdown
   attributes:
-    value: "| Severity                       |" |
+    value: "| Severity                       |"
     - type: dropdown
       id: score
       attributes:
