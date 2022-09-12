@@ -68,3 +68,4 @@ body:
 - type: markdown
   attributes:
     value: "| Category                       | Points     | Reason      |"
+           "|--------------------------------|------------|-------------|"
