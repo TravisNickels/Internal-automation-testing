@@ -3,11 +3,10 @@ description: File a bug/issue
 title: "[X.Y] <Bug title>"
 labels: [Bug]
 body:
-- label: "# Test"
 - type: checkboxes
   attributes:
-    label: Is there an existing issue for this?
-    description: Please search to see if an issue already exists for the bug you encountered.
+    label: "# Is there an existing issue for this?"
+    description: "# Please search to see if an issue already exists for the bug you encountered."
     options:
     - label: I have searched the existing issues
       required: true
