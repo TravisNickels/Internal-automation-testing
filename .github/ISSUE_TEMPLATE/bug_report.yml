@@ -67,5 +67,5 @@ body:
     value: "# Triage"
 - type: markdown
   attributes:
-    value: | "| Category                       | Points     | Reason      |" |
-             "|--------------------------------|------------|-------------|"
+    value: |
+    test markdown 
