@@ -16,7 +16,7 @@ body:
     value: "# Description"
 - type: textarea
   attributes:
-    label: Observered Behavior
+    label: "# Observered Behavior"
     description: A concise description of what you're observing.
   validations:
     required: false
