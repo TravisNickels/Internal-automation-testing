@@ -5,8 +5,8 @@ labels: [Bug]
 body:
 - type: checkboxes
   attributes:
-    label: "# Is there an existing issue for this?"
-    description: "# Please search to see if an issue already exists for the bug you encountered."
+    label: Is there an existing issue for this?
+    description: Please search to see if an issue already exists for the bug you encountered.
     options:
     - label: I have searched the existing issues
       required: true
@@ -16,8 +16,8 @@ body:
     value: Description
 - type: textarea
   attributes:
-    label: "# Observered Behavior"
-    description: "# A concise description of what you're observing."
+    label: Observered Behavior
+    description: A concise description of what you're observing.
   validations:
     required: false
 - type: textarea
@@ -68,9 +68,16 @@ body:
   attributes:
     label: Score the triage
     description: |
-      Links? References? Anything that will give us more context about the issue you are encountering!
+      These steps need to be followed by the person opening the bug:
 
-      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+      - [ ] Evaluate if this is really a bug.
+          - Problems with CI/CD follow the [build infrastructure triage process](https://github.com/Particular/KeepTheLightsOn/blob/master/buildinfrastructure/build-infra-triage.md) in which broken builds automatically qualify as Critical.
+          - Bugs in unreleased software don't fall within this process.
+      - [ ] Provide a detailed bug description.
+      - [ ] Score the bug based on the [bug triage](https://github.com/Particular/KeepTheLightsOn/blob/master/bugs/bug-triage.md) process.
+      - [ ] Ask another staff member (preferably with context for the bug in question) to [validate your triage score](https://github.com/Particular/KeepTheLightsOn/blob/master/bugs/bug-triage.md#triage-validation).
+      - [ ] The person validating triage should be the one to add the `Triage validated` label.
+      - [ ] Adjust the issue title and add the correct labels based on the [triage result](https://github.com/Particular/KeepTheLightsOn/blob/master/bugs/bug-triage.md#triage-result).
     value: |
       | Category                       | Points     | Reason      |
       |--------------------------------|------------|-------------|
