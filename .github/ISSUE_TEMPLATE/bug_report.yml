@@ -3,7 +3,7 @@ description: File a bug/issue
 title: "[X.Y] <Bug title>"
 labels: [Bug]
 body:
-"## Test"
+- label: "# Test"
 - type: checkboxes
   attributes:
     label: Is there an existing issue for this?
