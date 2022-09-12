@@ -81,6 +81,7 @@ body:
       | Squad Override (KtLO-use only!)|            | <!-- Be sure to add corresponding comment to issue if used --> |
       |                                |            |             |
       | **Total**                      |            |             |
+    render: markdown
   validations:
     required: false
 - type: dropdown
