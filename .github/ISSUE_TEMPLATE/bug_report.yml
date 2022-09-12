@@ -68,18 +68,3 @@ body:
 - type: markdown
   attributes:
     value: "| Category                       | Points     | Reason      |"
-- type: markdown
-  attributes:
-    value: "| Severity                       |"
-    - type: dropdown
-      id: score
-      attributes:
-        options:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-      validations:
-        required: true
