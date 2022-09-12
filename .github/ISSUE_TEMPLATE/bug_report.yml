@@ -1,8 +1,9 @@
 name: 🐞 Bug
 description: File a bug/issue
 title: "[X.Y] <Bug title>"
-labels: [Bug, Needs Triage]
+labels: [Bug]
 body:
+"## Test"
 - type: checkboxes
   attributes:
     label: Is there an existing issue for this?
@@ -13,7 +14,7 @@ body:
     - label: The bug was introduced in a recent release. Follow [what's next](https://github.com/Particular/KeepTheLightsOn/blob/master/bugs/bug-investigation.md#whats-next)
 - type: markdown
   attributes:
-    value: "# Description"
+    value: Description
 - type: textarea
   attributes:
     label: "# Observered Behavior"
