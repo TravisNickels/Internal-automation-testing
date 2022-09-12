@@ -71,16 +71,16 @@ body:
       | Category                       | Points     | Reason      |
       |--------------------------------|------------|-------------|
       | Severity                       |            |             |
-- type: dropdown
-  id: score
-  attributes:
-    label: score
-    options:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-  validations:
-    required: true
+      - type: dropdown
+        id: score
+        attributes:
+          label: score
+          options:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+        validations:
+          required: true
