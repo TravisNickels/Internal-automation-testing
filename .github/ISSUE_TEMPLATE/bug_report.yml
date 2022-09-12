@@ -70,9 +70,9 @@ body:
     value: |
       | Category                       | Points     | Reason      |
       |--------------------------------|------------|-------------|
-      | Severity                       |
+      | Severity                       |            |             |
 - type: dropdown
-    id: score
+  id: score
   attributes:
     options:
       - 0
