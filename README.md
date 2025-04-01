@@ -55,11 +55,11 @@
 
   - Then create the tunnel from the smee public URL to your local development path. The default port that Azure functions uses in Visual Studio 2022 is 7071
 
-    ```cmd
+    ```console
     smee -u https://smee.io/{random generation} --path /api/{FunctionName} --port 7071
     ```
 
-    ```cmd
+    ```console
     smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7071
     ```
 
@@ -78,10 +78,10 @@
 
 ### There is no functions runtime available that matches the version specified in the project
 
-I keep getting this error message box telling
+I keep getting this error message box telling:
 
-There is no Functions runtime available that matches the version project specified by the project
+_There is no Functions runtime available that matches the version project specified by the project_
 
 > Tools -> Options -> Projects & Solutions -> Azure functions and click on the "Check for updates" button.
 
-StackOverflow reference: https://stackoverflow.com/questions/75146087/running-azure-functions-locally-gives-no-runtime-error-after-net7-upgrade
+StackOverflow reference: <https://stackoverflow.com/questions/75146087/running-azure-functions-locally-gives-no-runtime-error-after-net7-upgrade>
