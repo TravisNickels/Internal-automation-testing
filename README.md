@@ -25,6 +25,8 @@
 
 ## InternalAutomation
 
+### Azure web jobs service bus
+
 - Create `AzureWebJobsServiceBus` environment variable from the Azure Service Bus connection string.
 
   - Settings -> Shared access policies -> RootManageSharedAccessKey -> Primary connection string
@@ -33,35 +35,37 @@
     Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********************************************
     ```
 
-- Connect to smee.io
+### Smee.io
 
-  - Go to smee.io to generate the url for the tunnel
-  - In GitHub go to:
+- Go to [smee.io](https://smee.io/) to generate the url for the tunnel
+- In GitHub go to:
 
-    - Settings -> Developer settings -> GitHub Apps -> {your app}
-    - General -> Webhook
+  - Settings -> Developer settings -> GitHub Apps -> {your app}
+  - General -> Webhook
 
-      - Enter the Webhook URL that was generated from smee.io
+    - Enter the Webhook URL that was generated from smee.io
 
-        ```text
-        https://smee.io/{random generation}
-        ```
+      ```text
+      https://smee.io/{random generation}
+      ```
 
-  - From a terminal install the the smee client
+- From a terminal install the the smee client
 
-    ```console
-    npm install --global smee-client
-    ```
+  ```console
+  npm install --global smee-client
+  ```
 
-  - Then create the tunnel from the smee public URL to your local development path. The default port that Azure functions uses in Visual Studio 2022 is 7071
+- Then create the tunnel from the smee public URL to your local development path. The default port that Azure functions uses in Visual Studio 2022 is 7071
 
-    ```console
-    smee -u https://smee.io/{random generation} --path /api/{FunctionName} --port 7071
-    ```
+  ```console
+  smee -u https://smee.io/{random generation} --path /api/{FunctionName} --port 7071
+  ```
 
-    ```console
-    smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7071
-    ```
+  ```console
+  smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7071
+  ```
+
+### GitHub App
 
 - [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
 
