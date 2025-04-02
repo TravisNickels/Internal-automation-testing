@@ -25,15 +25,32 @@
 
 ## [Running locally](https://github.com/Particular/InternalAutomation#running-locally)
 
-### Azure web jobs service bus
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "IS_RUNNING_LOCALLY":  true,
+    "REPOSITORYSTANDARDSSTORAGEACCOUNTURI": "{StorageConnectionString}",
+    "AzureWebJobsStorage": "{StorageConnectionString}",
+    "AzureWebJobsServiceBus": "{AzureServiceBusConnectionString}",
+    "DbConnectionString": "{DbConnectionString}",
+    "GITHUB_TOKEN": "{GitHubToken}",
+    "GITHUB_WEBHOOK_SECRETKEY":  "{GitHubWebhookSecretKey}",
+    "PAGERDUTY_TOKEN": "{PagerDutyToken}",
+    "APPSETTING_SLACK_OAUTH_BEARER_TOKEN": "{SlackToken}"
+    "GITHUB_APPID": "{GitHubAppId}",
+    "GITHUB_INSTALLATIONID": "{GitHubInstallationId}"
+    "GITHUB_APPPRIVATEKEY": "{GitHubAppPrivateKey}"
+  }
+}
+```
 
-- Create `AzureWebJobsServiceBus` environment variable from the Azure Service Bus connection string.
+### Settings
 
-  - Settings -> Shared access policies -> RootManageSharedAccessKey -> Primary connection string
+#### "REPOSITORYSTANDARDSSTORAGEACCOUNTURI"
 
-    ```text
-    Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=**************************
-    ```
+A connection string to an Azure Storage account.
 
 - Create `REPOSITORYSTANDARDSSTORAGEACCOUNTURI` environment variable from the Azure Storage account connection string.
 
@@ -43,11 +60,57 @@
     DefaultEndpointsProtocol=https;AccountName=internalautomationblob;AccountKey=************************;EndpointSuffix=core.windows.net
     ```
 
+#### AzureWebJobsServiceBus
+
+A connection string to an Azure Storage account.
+
+- Create `AzureWebJobsServiceBus` environment variable from the Azure Service Bus connection string.
+
+  - Settings -> Shared access policies -> RootManageSharedAccessKey -> Primary connection string
+
+    ```text
+    Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=**************************
+    ```
+
+#### GITHUB_INSTALLATIONID
+
+- Settings -> Developer Settings => GitHub Apps => `Edit` {your app} => Install App
+- Click the sprocket icon on the installed account
+- In the URL is the number that you want to use for the `GITHUB_INSTALLATIONID` environment variable
+  - `https://github.com/organizations/ParticularTesting/settings/installations/{installationId}`
+
 ### GitHub App
 
 #### Working with GitHub project V2 boards
 
-Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account. Organizations can be created for free and can be owned by a personal account.
+Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account.
+Organizations can be created for free and can be owned by a personal account.
+
+#### Permissions & events
+
+- Settings -> Developer settings -> GitHub Apps -> {your app} -> Permissions & events
+
+##### Permissions
+
+- Repository permissions
+  - Issues - `Read and write`
+  - Metadata - `Mandatory`
+- Organization permissions
+  - Events - `Read-only`
+  - Projects - `Read and write`
+
+##### Events
+
+- Issues
+- Label
+- Project v2
+- Project v2 item
+- Project v2 status update
+
+#### Generate a client secret
+
+- Settings -> Developer settings -> GitHub Apps -> {your app}
+- General -> Generate a client secret
 
 #### [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
 
@@ -97,14 +160,14 @@ Azurite Table service is successfully listening at http://127.0.0.1:10002
   npm install --global smee-client
   ```
 
-- Then create the tunnel from the smee public URL to your local development path. The default port that Azure functions uses in Visual Studio 2022 is 7071
+- Then create the tunnel from the smee public URL to your local development path. The default port that Azure functions uses in Visual Studio 2022 is 7071 or 7290
 
   ```console
-  smee -u https://smee.io/{random generation} --path /api/{FunctionName} --port 7071
+  smee -u https://smee.io/{random generation} --path /api/{FunctionName} --port 7290
   ```
 
   ```console
-  smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7071
+  smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7290
   ```
 
 ## Errors
