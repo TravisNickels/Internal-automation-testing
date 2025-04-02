@@ -174,6 +174,9 @@ Azurite Table service is successfully listening at http://127.0.0.1:10002
 
 ## Errors
 
+> [!NOTE]
+> If you are getting random errors check the `local.settings.json` file and make sure there are commas at the end of each line
+
 ### There is no functions runtime available that matches the version specified in the project
 
 > Tools -> Options -> Projects & Solutions -> Azure functions and click on the "Check for updates" button.
