@@ -1,4 +1,4 @@
-# create-reminder-action
+# Internal Automation
 
 ## Github Actions
 
@@ -23,7 +23,7 @@
   ncc build index.js -o dist --license licenses.txt
   ```
 
-## InternalAutomation
+## [Running locally](https://github.com/Particular/InternalAutomation#running-locally)
 
 ### Azure web jobs service bus
 
@@ -32,7 +32,15 @@
   - Settings -> Shared access policies -> RootManageSharedAccessKey -> Primary connection string
 
     ```text
-    Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********************************************
+    Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=**************************
+    ```
+
+- Create `REPOSITORYSTANDARDSSTORAGEACCOUNTURI` environment variable from the Azure Storage account connection string.
+
+  - Security + networking -> Access keys -> key 1 -> Connection string
+
+    ```text
+    DefaultEndpointsProtocol=https;AccountName=internalautomationblob;AccountKey=************************;EndpointSuffix=core.windows.net
     ```
 
 ### Smee.io
@@ -67,24 +75,20 @@
 
 ### GitHub App
 
-- [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
+#### Working with GitHub project V2 boards
 
-  - In GitHub go to:
+Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account. Organizations can be created for free and can be owned by a personal account.
 
-    - Settings -> Developer settings -> GitHub Apps -> {your app}
-    - General -> Private keys -> `generate a private key`
-      - This will download a PEM file with the private key.
-    - Open the file and copy the key to the `GITHUB_APPPRIVATEKEY` variable in the `local.settings.json` file.
+#### [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
 
-    more testing
+- Settings -> Developer settings -> GitHub Apps -> {your app}
+- General -> Private keys -> `generate a private key`
+  - This will download a PEM file with the private key.
+- Open the file and copy the key to the `GITHUB_APPPRIVATEKEY` variable in the `local.settings.json` file.
 
 ## Errors
 
 ### There is no functions runtime available that matches the version specified in the project
-
-I keep getting this error message box telling:
-
-_There is no Functions runtime available that matches the version project specified by the project_
 
 > Tools -> Options -> Projects & Solutions -> Azure functions and click on the "Check for updates" button.
 
