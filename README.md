@@ -25,6 +25,8 @@
 
 ## [Running locally](https://github.com/Particular/InternalAutomation#running-locally)
 
+To run locally, you need to create a `src\InternalAutomation\local.settings.json` file
+
 ```xml
 {
   "IsEncrypted": false,
@@ -48,7 +50,7 @@
 
 ### Settings
 
-#### "REPOSITORYSTANDARDSSTORAGEACCOUNTURI"
+#### `REPOSITORYSTANDARDSSTORAGEACCOUNTURI`
 
 A connection string to an Azure Storage account.
 
@@ -60,7 +62,7 @@ A connection string to an Azure Storage account.
     DefaultEndpointsProtocol=https;AccountName=internalautomationblob;AccountKey=************************;EndpointSuffix=core.windows.net
     ```
 
-#### AzureWebJobsServiceBus
+#### `AzureWebJobsServiceBus`
 
 A connection string to an Azure Storage account.
 
@@ -72,7 +74,7 @@ A connection string to an Azure Storage account.
     Endpoint=sb://***.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=**************************
     ```
 
-#### GITHUB_INSTALLATIONID
+#### `GITHUB_INSTALLATIONID`
 
 - Settings -> Developer Settings => GitHub Apps => `Edit` {your app} => Install App
 - Click the sprocket icon on the installed account
