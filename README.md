@@ -43,6 +43,40 @@
     DefaultEndpointsProtocol=https;AccountName=internalautomationblob;AccountKey=************************;EndpointSuffix=core.windows.net
     ```
 
+### GitHub App
+
+#### Working with GitHub project V2 boards
+
+Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account. Organizations can be created for free and can be owned by a personal account.
+
+#### [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
+
+- Settings -> Developer settings -> GitHub Apps -> {your app}
+- General -> Private keys -> `generate a private key`
+  - This will download a PEM file with the private key.
+- Open the file and copy the key to the `GITHUB_APPPRIVATEKEY` variable in the `local.settings.json` file.
+
+### Run Azurite
+
+Navigate to the [Azurite executable file location](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio%2Cblob-storage#azurite-executable-file-location) and run the executable file:
+
+```console
+cd C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator
+```
+
+```console
+Azurite.exe
+```
+
+```text
+Azurite Blob service is starting at http://127.0.0.1:10000
+Azurite Blob service is successfully listening at http://127.0.0.1:10000
+Azurite Queue service is starting at http://127.0.0.1:10001
+Azurite Queue service is successfully listening at http://127.0.0.1:10001
+Azurite Table service is starting at http://127.0.0.1:10002
+Azurite Table service is successfully listening at http://127.0.0.1:10002
+```
+
 ### Smee.io
 
 - Go to [smee.io](https://smee.io/) to generate the url for the tunnel
@@ -72,19 +106,6 @@
   ```console
   smee -u https://smee.io/I71ZrIdKZUXzP3uA --path /api/StatusUpdateReminder --port 7071
   ```
-
-### GitHub App
-
-#### Working with GitHub project V2 boards
-
-Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account. Organizations can be created for free and can be owned by a personal account.
-
-#### [Generate the App's private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)
-
-- Settings -> Developer settings -> GitHub Apps -> {your app}
-- General -> Private keys -> `generate a private key`
-  - This will download a PEM file with the private key.
-- Open the file and copy the key to the `GITHUB_APPPRIVATEKEY` variable in the `local.settings.json` file.
 
 ## Errors
 
