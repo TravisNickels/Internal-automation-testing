@@ -81,12 +81,19 @@ A connection string to an Azure Storage account.
 - In the URL is the number that you want to use for the `GITHUB_INSTALLATIONID` environment variable
   - `https://github.com/organizations/ParticularTesting/settings/installations/{installationId}`
 
+### SQL Server
+
+- Verify that SQL Server is running
+  - Services -> SQL Server -> Properties -> General -> Status -> SQL Server is running
+
 ### GitHub App
 
 #### Working with GitHub project V2 boards
 
-Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2 board, you must have an app installed on a GitHub organization and not a personal account.
-Organizations can be created for free and can be owned by a personal account.
+Project V2 events are specifically organization-level events and are scoped to the organization that owns the project. This means that in order to do local testing on a project V2, you must have a GitHub organization and not just a personal account. Organizations can be created for free and can be owned by a personal account.
+
+> [!NOTE]
+> If an app is installed on a personal account, and that account is the owner or admin of the organization that owns the project, the app will be able to access the organization project V2 events.
 
 #### Permissions & events
 
